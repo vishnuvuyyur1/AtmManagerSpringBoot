@@ -1,0 +1,11 @@
+codebase\ingatmmanager\service\IngAtmManagerService.class
+codebase\ingatmmanager\model\AtmDetailsForCity.class
+codebase\ingatmmanager\MvcConfig.class
+codebase\ingatmmanager\Application.class
+codebase\ingatmmanager\SecurityConfig.class
+codebase\ingatmmanager\model\Address.class
+codebase\ingatmmanager\controllers\IngAtmManagerAppController.class
+codebase\ingatmmanager\model\IngAtms.class
+codebase\ingatmmanager\service\IngAtmManagerServiceImpl.class
+codebase\ingatmmanager\controllers\IngAtmManagerSvcController.class
+codebase\ingatmmanager\model\GeoLocation.class

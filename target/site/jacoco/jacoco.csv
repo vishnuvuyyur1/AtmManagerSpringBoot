@@ -1,0 +1,8 @@
+GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
+INGAtmManager,codebase.ingatmmanager.model,AtmDetailsForCity,0,17,0,0,0,7,0,5,0,5
+INGAtmManager,codebase.ingatmmanager.model,Address,0,56,0,0,0,24,0,12,0,12
+INGAtmManager,codebase.ingatmmanager.model,GeoLocation,0,26,0,0,0,12,0,6,0,6
+INGAtmManager,codebase.ingatmmanager.model,IngAtms,0,36,0,0,0,16,0,8,0,8
+INGAtmManager,codebase.ingatmmanager.controllers,IngAtmManagerAppController,0,10,0,0,0,3,0,2,0,2
+INGAtmManager,codebase.ingatmmanager.controllers,IngAtmManagerSvcController,0,36,0,0,0,6,0,3,0,3
+INGAtmManager,codebase.ingatmmanager.service,IngAtmManagerServiceImpl,0,52,0,0,0,11,0,3,0,3

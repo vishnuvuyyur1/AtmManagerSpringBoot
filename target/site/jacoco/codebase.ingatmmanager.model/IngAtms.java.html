@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>IngAtms.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">INGAtmManager</a> &gt; <a href="index.source.html" class="el_package">codebase.ingatmmanager.model</a> &gt; <span class="el_source">IngAtms.java</span></div><h1>IngAtms.java</h1><pre class="source lang-java linenums">package codebase.ingatmmanager.model;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+@JsonIgnoreProperties(ignoreUnknown = true)
+public class IngAtms {
+	
+	@JsonProperty(&quot;address&quot;) 
+	private Address address;
+	@JsonProperty(&quot;distance&quot;) 
+	private int distance;
+	@JsonProperty(&quot;type&quot;) 
+	private String type;
+	
+<span class="fc" id="L16">	public IngAtms(){</span>
+		
+<span class="fc" id="L18">	}</span>
+<span class="fc" id="L19">	public IngAtms(Address address,int distance,String type){</span>
+<span class="fc" id="L20">		this.address =address;</span>
+<span class="fc" id="L21">		this.distance =distance;</span>
+<span class="fc" id="L22">		this.type =type;</span>
+<span class="fc" id="L23">	}</span>
+	public Address getAddress() {
+<span class="fc" id="L25">		return address;</span>
+	}
+	public void setAddress(Address address) {
+<span class="fc" id="L28">		this.address = address;</span>
+<span class="fc" id="L29">	}</span>
+	public int getDistance() {
+<span class="fc" id="L31">		return distance;</span>
+	}
+	public void setDistance(int distance) {
+<span class="fc" id="L34">		this.distance = distance;</span>
+<span class="fc" id="L35">	}</span>
+	public String getType() {
+<span class="fc" id="L37">		return type;</span>
+	}
+	public void setType(String type) {
+<span class="fc" id="L40">		this.type = type;</span>
+<span class="fc" id="L41">	}</span>
+	
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.5.201505241946</span></div></body></html>

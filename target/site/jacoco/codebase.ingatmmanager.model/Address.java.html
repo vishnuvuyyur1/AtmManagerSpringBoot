@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>Address.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">INGAtmManager</a> &gt; <a href="index.source.html" class="el_package">codebase.ingatmmanager.model</a> &gt; <span class="el_source">Address.java</span></div><h1>Address.java</h1><pre class="source lang-java linenums">package codebase.ingatmmanager.model;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+@JsonIgnoreProperties(ignoreUnknown = true)
+public class Address {
+	@JsonProperty(&quot;street&quot;) 
+	private String street;
+	@JsonProperty(&quot;housenumber&quot;) 
+	private String housenumber;
+	@JsonProperty(&quot;postalcode&quot;) 
+	private String postalcode;
+	@JsonProperty(&quot;city&quot;) 
+	private String city;
+	@JsonProperty(&quot;geoLocation&quot;) 
+	private GeoLocation geoLocation;
+	
+<span class="fc" id="L19">	public Address(){</span>
+		
+<span class="fc" id="L21">	}</span>
+<span class="fc" id="L22">	public Address(String street,String housenumber,String postalcode,String city,GeoLocation geoLocation){</span>
+<span class="fc" id="L23">		this.street=street;</span>
+<span class="fc" id="L24">	    this.housenumber=housenumber;</span>
+<span class="fc" id="L25">	    this.postalcode=postalcode;</span>
+<span class="fc" id="L26">	    this.city=city;</span>
+<span class="fc" id="L27">	    this.geoLocation=geoLocation;</span>
+<span class="fc" id="L28">	}</span>
+	
+	public String getStreet() {
+<span class="fc" id="L31">		return street;</span>
+	}
+	public void setStreet(String street) {
+<span class="fc" id="L34">		this.street = street;</span>
+<span class="fc" id="L35">	}</span>
+	public String getHousenumber() {
+<span class="fc" id="L37">		return housenumber;</span>
+	}
+	public void setHousenumber(String housenumber) {
+<span class="fc" id="L40">		this.housenumber = housenumber;</span>
+<span class="fc" id="L41">	}</span>
+	
+	public String getPostalcode() {
+<span class="fc" id="L44">		return postalcode;</span>
+	}
+	public void setPostalcode(String postalcode) {
+<span class="fc" id="L47">		this.postalcode = postalcode;</span>
+<span class="fc" id="L48">	}</span>
+	public String getCity() {
+<span class="fc" id="L50">		return city;</span>
+	}
+	public void setCity(String city) {
+<span class="fc" id="L53">		this.city = city;</span>
+<span class="fc" id="L54">	}</span>
+	public GeoLocation getGeoLocation() {
+<span class="fc" id="L56">		return geoLocation;</span>
+	}
+	public void setGeoLocation(GeoLocation geoLocation) {
+<span class="fc" id="L59">		this.geoLocation = geoLocation;</span>
+<span class="fc" id="L60">	}</span>
+	
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.5.201505241946</span></div></body></html>
