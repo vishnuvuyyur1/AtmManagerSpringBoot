@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>IngAtmManagerServiceImpl.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">INGAtmManager</a> &gt; <a href="index.source.html" class="el_package">codebase.ingatmmanager.service</a> &gt; <span class="el_source">IngAtmManagerServiceImpl.java</span></div><h1>IngAtmManagerServiceImpl.java</h1><pre class="source lang-java linenums">package codebase.ingatmmanager.service;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import org.springframework.stereotype.Component;
 
@@ -12,21 +15,26 @@ import codebase.ingatmmanager.model.AtmDetailsForCity;
 import codebase.ingatmmanager.model.IngAtms;
 
 @Component
-<span class="fc" id="L15">public class IngAtmManagerServiceImpl implements IngAtmManagerService{</span>
+<span class="fc" id="L18">public class IngAtmManagerServiceImpl implements IngAtmManagerService{</span>
 
 	@Override
 	public List&lt;IngAtms&gt; getIngAtmsList(String json) throws Exception {
 		
 		try {
-<span class="fc" id="L21">		int i = json.indexOf(&quot;{&quot;);</span>
-<span class="fc" id="L22">		json = json.substring(i);</span>
-<span class="fc" id="L23">		String validJson = &quot;[&quot; + json + &quot;]&quot;;</span>
-<span class="fc" id="L24">		ObjectMapper mapper = new ObjectMapper();</span>
-<span class="fc" id="L25">		List&lt;IngAtms&gt; ingAtms = mapper.readValue(validJson,</span>
-<span class="fc" id="L26">				TypeFactory.defaultInstance().constructCollectionType(List.class, IngAtms.class));</span>
-<span class="fc" id="L27">		return ingAtms;</span>
-<span class="fc" id="L28">		} catch (IOException e) {</span>
-<span class="fc" id="L29">			throw new Exception(&quot;Error parsing Json: &quot; +  e);</span>
+<span class="fc" id="L24">		int i = json.indexOf(&quot;{&quot;);</span>
+<span class="fc" id="L25">		json = json.substring(i);</span>
+<span class="fc" id="L26">		String validJson = &quot;[&quot; + json + &quot;]&quot;;</span>
+<span class="fc" id="L27">		ObjectMapper mapper = new ObjectMapper();</span>
+<span class="fc" id="L28">		List&lt;IngAtms&gt; ingAtms = mapper.readValue(validJson,</span>
+<span class="fc" id="L29">				TypeFactory.defaultInstance().constructCollectionType(List.class, IngAtms.class));</span>
+<span class="fc" id="L30">		HashSet st= new HashSet();</span>
+<span class="fc" id="L31">		ArrayList a= new ArrayList();</span>
+<span class="fc" id="L32">		a.equals(&quot;o&quot;);</span>
+<span class="fc" id="L33">		st.equals(&quot;o&quot;);</span>
+<span class="fc" id="L34">		st.add(&quot;s&quot;);</span>
+<span class="fc" id="L35">		return ingAtms;</span>
+<span class="fc" id="L36">		} catch (IOException e) {</span>
+<span class="fc" id="L37">			throw new Exception(&quot;Error parsing Json: &quot; +  e);</span>
 	 }
 	}
 
@@ -35,7 +43,7 @@ import codebase.ingatmmanager.model.IngAtms;
 		// can have call to SO/DAO/DB to process and store to database
 		// I could include DB as well, you have to run ddl and create table and stuff so skipping
 		//Simply returning the entered details back to confirm the enty is success
-<span class="fc" id="L38">		return atmDetailsForCity;</span>
+<span class="fc" id="L46">		return atmDetailsForCity;</span>
 	}
 
 }

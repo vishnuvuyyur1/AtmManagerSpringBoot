@@ -1,16 +1,19 @@
 package codebase.ingatmmanager.controllers;
 
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.access.annotation.Secured;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestClientException;
 import org.springframework.web.client.RestTemplate;
+import org.springframework.web.multipart.MultipartFile;
 
 import codebase.ingatmmanager.model.AtmDetailsForCity;
 import codebase.ingatmmanager.model.IngAtms;
@@ -26,7 +29,7 @@ public class IngAtmManagerSvcController {
 
 	@Autowired
 	RestTemplate restTemplate;
-
+	
 	@Autowired
 	IngAtmManagerService ingAtmManagerService;
 
@@ -48,5 +51,13 @@ public class IngAtmManagerSvcController {
 		}
 
 	}
+	
+	@PostMapping("/api/uploadFile")
+    public String handleFileUpload(@RequestParam("file") MultipartFile file) throws Exception {
+
+		ingAtmManagerService.storeUploadedFile(file);
+        return "You successfully uploaded " + file.getOriginalFilename() + "!";
+
+    }
 
 }
