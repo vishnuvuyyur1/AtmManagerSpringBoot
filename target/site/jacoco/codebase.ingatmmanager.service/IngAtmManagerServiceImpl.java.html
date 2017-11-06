@@ -20,7 +20,7 @@ import codebase.ingatmmanager.model.IngAtms;
 @Service
 <span class="fc" id="L21">public class IngAtmManagerServiceImpl implements IngAtmManagerService{</span>
 	
-<span class="fc" id="L23">	private final Path rootLocation =Paths.get(&quot;/tmp/uploads&quot;);</span>
+<span class="fc" id="L23">	private final Path rootLocation =Paths.get(&quot;/tmp/uploads/&quot;);</span>
 
  
 	@Override
@@ -60,14 +60,15 @@ import codebase.ingatmmanager.model.IngAtms;
 	                        &quot;Cannot store file with relative path outside current directory &quot;
 	                                + filename);
 	            }
-<span class="nc" id="L63">	            Files.copy(file.getInputStream(), this.rootLocation.resolve(filename),</span>
+<span class="nc" id="L63">	            System.out.println(&quot;Directory location   &quot;+this.rootLocation.resolve(filename));</span>
+<span class="nc" id="L64">	            Files.copy(file.getInputStream(), this.rootLocation.resolve(filename),</span>
 	                    StandardCopyOption.REPLACE_EXISTING);
 	        }
-<span class="nc" id="L66">	        catch (IOException e) {</span>
-<span class="nc" id="L67">	            throw new IngAtmManagerServiceException(&quot;Failed to store file &quot; + filename, e);</span>
-<span class="nc" id="L68">	        }</span>
+<span class="nc" id="L67">	        catch (IOException e) {</span>
+<span class="nc" id="L68">	            throw new IngAtmManagerServiceException(&quot;Failed to store file &quot; + filename, e);</span>
+<span class="nc" id="L69">	        }</span>
 		
-<span class="nc" id="L70">	}</span>
+<span class="nc" id="L71">	}</span>
 
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.5.201505241946</span></div></body></html>

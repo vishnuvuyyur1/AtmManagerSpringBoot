@@ -20,7 +20,7 @@ import codebase.ingatmmanager.model.IngAtms;
 @Service
 public class IngAtmManagerServiceImpl implements IngAtmManagerService{
 	
-	private final Path rootLocation =Paths.get("/tmp/uploads");
+	private final Path rootLocation =Paths.get("/tmp/uploads/");
 
  
 	@Override
@@ -60,6 +60,7 @@ public class IngAtmManagerServiceImpl implements IngAtmManagerService{
 	                        "Cannot store file with relative path outside current directory "
 	                                + filename);
 	            }
+	            System.out.println("Directory location   "+this.rootLocation.resolve(filename));
 	            Files.copy(file.getInputStream(), this.rootLocation.resolve(filename),
 	                    StandardCopyOption.REPLACE_EXISTING);
 	        }
