@@ -3,6 +3,8 @@ INGAtmManager,codebase.ingatmmanager.model,AtmDetailsForCity,0,17,0,0,0,7,0,5,0,
 INGAtmManager,codebase.ingatmmanager.model,Address,0,56,0,0,0,24,0,12,0,12
 INGAtmManager,codebase.ingatmmanager.model,GeoLocation,0,26,0,0,0,12,0,6,0,6
 INGAtmManager,codebase.ingatmmanager.model,IngAtms,0,36,0,0,0,16,0,8,0,8
+INGAtmManager,codebase.ingatmmanager,Application.new WebMvcConfigurerAdapter() {...},44,0,0,0,4,0,2,0,2,0
 INGAtmManager,codebase.ingatmmanager.controllers,IngAtmManagerAppController,0,10,0,0,0,3,0,2,0,2
-INGAtmManager,codebase.ingatmmanager.controllers,IngAtmManagerSvcController,81,42,4,0,12,7,3,3,1,3
-INGAtmManager,codebase.ingatmmanager.service,IngAtmManagerServiceImpl,0,72,0,0,0,16,0,3,0,3
+INGAtmManager,codebase.ingatmmanager.controllers,IngAtmManagerSvcController,16,36,0,0,2,6,1,3,1,3
+INGAtmManager,codebase.ingatmmanager.service,IngAtmManagerServiceException,9,0,0,0,4,0,2,0,2,0
+INGAtmManager,codebase.ingatmmanager.service,IngAtmManagerServiceImpl,65,58,4,0,10,12,3,3,1,3

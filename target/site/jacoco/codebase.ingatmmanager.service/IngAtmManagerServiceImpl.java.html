@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>IngAtmManagerServiceImpl.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">INGAtmManager</a> &gt; <a href="index.source.html" class="el_package">codebase.ingatmmanager.service</a> &gt; <span class="el_source">IngAtmManagerServiceImpl.java</span></div><h1>IngAtmManagerServiceImpl.java</h1><pre class="source lang-java linenums">package codebase.ingatmmanager.service;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashSet;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
 import java.util.List;
-import java.util.Set;
 
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
+import org.springframework.util.StringUtils;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.type.TypeFactory;
@@ -14,27 +17,25 @@ import com.fasterxml.jackson.databind.type.TypeFactory;
 import codebase.ingatmmanager.model.AtmDetailsForCity;
 import codebase.ingatmmanager.model.IngAtms;
 
-@Component
-<span class="fc" id="L18">public class IngAtmManagerServiceImpl implements IngAtmManagerService{</span>
+@Service
+<span class="fc" id="L21">public class IngAtmManagerServiceImpl implements IngAtmManagerService{</span>
+	
+<span class="fc" id="L23">	private final Path rootLocation =Paths.get(&quot;tmp\\uploads&quot;);</span>
 
+ 
 	@Override
 	public List&lt;IngAtms&gt; getIngAtmsList(String json) throws Exception {
 		
 		try {
-<span class="fc" id="L24">		int i = json.indexOf(&quot;{&quot;);</span>
-<span class="fc" id="L25">		json = json.substring(i);</span>
-<span class="fc" id="L26">		String validJson = &quot;[&quot; + json + &quot;]&quot;;</span>
-<span class="fc" id="L27">		ObjectMapper mapper = new ObjectMapper();</span>
-<span class="fc" id="L28">		List&lt;IngAtms&gt; ingAtms = mapper.readValue(validJson,</span>
-<span class="fc" id="L29">				TypeFactory.defaultInstance().constructCollectionType(List.class, IngAtms.class));</span>
-<span class="fc" id="L30">		HashSet st= new HashSet();</span>
-<span class="fc" id="L31">		ArrayList a= new ArrayList();</span>
-<span class="fc" id="L32">		a.equals(&quot;o&quot;);</span>
-<span class="fc" id="L33">		st.equals(&quot;o&quot;);</span>
-<span class="fc" id="L34">		st.add(&quot;s&quot;);</span>
-<span class="fc" id="L35">		return ingAtms;</span>
-<span class="fc" id="L36">		} catch (IOException e) {</span>
-<span class="fc" id="L37">			throw new Exception(&quot;Error parsing Json: &quot; +  e);</span>
+<span class="fc" id="L30">		int i = json.indexOf(&quot;{&quot;);</span>
+<span class="fc" id="L31">		json = json.substring(i);</span>
+<span class="fc" id="L32">		String validJson = &quot;[&quot; + json + &quot;]&quot;;</span>
+<span class="fc" id="L33">		ObjectMapper mapper = new ObjectMapper();</span>
+<span class="fc" id="L34">		List&lt;IngAtms&gt; ingAtms = mapper.readValue(validJson,</span>
+<span class="fc" id="L35">				TypeFactory.defaultInstance().constructCollectionType(List.class, IngAtms.class));</span>
+<span class="fc" id="L36">		return ingAtms;</span>
+<span class="fc" id="L37">		} catch (IOException e) {</span>
+<span class="fc" id="L38">			throw new Exception(&quot;Error parsing Json: &quot; +  e);</span>
 	 }
 	}
 
@@ -43,8 +44,30 @@ import codebase.ingatmmanager.model.IngAtms;
 		// can have call to SO/DAO/DB to process and store to database
 		// I could include DB as well, you have to run ddl and create table and stuff so skipping
 		//Simply returning the entered details back to confirm the enty is success
-<span class="fc" id="L46">		return atmDetailsForCity;</span>
+<span class="fc" id="L47">		return atmDetailsForCity;</span>
 	}
+
+	@Override
+	public void storeUploadedFile(MultipartFile file) {
+<span class="nc" id="L52">		 String filename = StringUtils.cleanPath(file.getOriginalFilename());</span>
+	        try {
+<span class="nc bnc" id="L54" title="All 2 branches missed.">	            if (file.isEmpty()) {</span>
+<span class="nc" id="L55">	                throw new IngAtmManagerServiceException(&quot;Failed to store empty file &quot; + filename);</span>
+	            }
+<span class="nc bnc" id="L57" title="All 2 branches missed.">	            if (filename.contains(&quot;..&quot;)) {</span>
+	                // This is a security check
+<span class="nc" id="L59">	                throw new IngAtmManagerServiceException(</span>
+	                        &quot;Cannot store file with relative path outside current directory &quot;
+	                                + filename);
+	            }
+<span class="nc" id="L63">	            Files.copy(file.getInputStream(), this.rootLocation.resolve(filename),</span>
+	                    StandardCopyOption.REPLACE_EXISTING);
+	        }
+<span class="nc" id="L66">	        catch (IOException e) {</span>
+<span class="nc" id="L67">	            throw new IngAtmManagerServiceException(&quot;Failed to store file &quot; + filename, e);</span>
+<span class="nc" id="L68">	        }</span>
+		
+<span class="nc" id="L70">	}</span>
 
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.5.201505241946</span></div></body></html>

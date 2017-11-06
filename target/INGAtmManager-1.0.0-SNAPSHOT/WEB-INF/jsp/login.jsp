@@ -35,6 +35,11 @@ Invalid credentials
       <button type="submit" class="btn btn-default" id="ing_login_form_submit">Submit</button>
     </div>
   </div>
+  
+  <div>
+  <p>User     : user</p>
+  <p>Password : temp</p>
+  </div>
 </form>
 </div>
 </body>

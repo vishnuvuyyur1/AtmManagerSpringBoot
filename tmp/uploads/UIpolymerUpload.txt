@@ -1,0 +1,18 @@
+https://github.com/CGIGroup/polymer-codelab
+(CGI Polymer tutorial)
+
+https://stackoverflow.com/questions/34302119/upload-file-with-iron-ajax-google-polymer
+(Upload file using iron Ajax)
+
+https://stackoverflow.com/questions/25099938/polymer-core-ajax-file-upload
+(Core Ajax file upload)
+
+https://stackoverflow.com/questions/43101352/polymer-2-0-getting-paper-input-file
+(Get input file polymer 2.0)
+
+https://stackoverflow.com/questions/24850113/polymer-adding-eventlisteners
+(Handling Back button)
+
+https://stackoverflow.com/questions/24627076/using-queryselector-to-find-nested-elements-inside-a-polymer-template-returns-nu
+https://stackoverflow.com/questions/43937386/queryselector-not-working-in-shadow-dom-in-polymer-2
+(This will give you back the ELEMENT. So you can then use functions/apis this element provides)
