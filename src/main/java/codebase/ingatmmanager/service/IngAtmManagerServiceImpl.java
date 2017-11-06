@@ -20,7 +20,7 @@ import codebase.ingatmmanager.model.IngAtms;
 @Service
 public class IngAtmManagerServiceImpl implements IngAtmManagerService{
 	
-	private final Path rootLocation =Paths.get("tmp\\uploads");
+	private final Path rootLocation =Paths.get("/tmp/uploads");
 
  
 	@Override

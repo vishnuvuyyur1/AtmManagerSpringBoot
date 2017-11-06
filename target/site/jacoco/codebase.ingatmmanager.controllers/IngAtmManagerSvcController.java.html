@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>IngAtmManagerSvcController.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">INGAtmManager</a> &gt; <a href="index.source.html" class="el_package">codebase.ingatmmanager.controllers</a> &gt; <span class="el_source">IngAtmManagerSvcController.java</span></div><h1>IngAtmManagerSvcController.java</h1><pre class="source lang-java linenums">package codebase.ingatmmanager.controllers;
 
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,7 +23,7 @@ import codebase.ingatmmanager.service.IngAtmManagerService;
  */
 
 @RestController
-<span class="fc" id="L28">public class IngAtmManagerSvcController {</span>
+<span class="fc" id="L26">public class IngAtmManagerSvcController {</span>
 
 	@Autowired
 	RestTemplate restTemplate;
@@ -37,17 +35,17 @@ import codebase.ingatmmanager.service.IngAtmManagerService;
 
 	@PostMapping(value = &quot;/api/createAtmDetailForCity&quot;)
 	public AtmDetailsForCity createAtmDetailForCity(@RequestBody AtmDetailsForCity atmDetailsForCity) {
-<span class="fc" id="L40">		return ingAtmManagerService.createAtmDetailForCity(atmDetailsForCity);</span>
+<span class="fc" id="L38">		return ingAtmManagerService.createAtmDetailForCity(atmDetailsForCity);</span>
 	}
 
 	@GetMapping(&quot;/api/getAllAtmDetails&quot;)
 	public List&lt;IngAtms&gt; getIngAtmsList() throws Exception {
 
 		try {
-<span class="fc" id="L47">			ResponseEntity&lt;String&gt; response = restTemplate.getForEntity(EXTERNAL_SERVICE_LINK, String.class);</span>
-<span class="fc" id="L48">			return ingAtmManagerService.getIngAtmsList(response.getBody());</span>
-<span class="fc" id="L49">		} catch (RestClientException e) {</span>
-<span class="fc" id="L50">			throw new Exception(&quot;Error Communicating with the servce: &quot; + e);</span>
+<span class="fc" id="L45">			ResponseEntity&lt;String&gt; response = restTemplate.getForEntity(EXTERNAL_SERVICE_LINK, String.class);</span>
+<span class="fc" id="L46">			return ingAtmManagerService.getIngAtmsList(response.getBody());</span>
+<span class="fc" id="L47">		} catch (RestClientException e) {</span>
+<span class="fc" id="L48">			throw new Exception(&quot;Error Communicating with the servce: &quot; + e);</span>
 		}
 
 	}
@@ -55,8 +53,8 @@ import codebase.ingatmmanager.service.IngAtmManagerService;
 	@PostMapping(&quot;/api/uploadFile&quot;)
     public String handleFileUpload(@RequestParam(&quot;file&quot;) MultipartFile file) throws Exception {
 
-<span class="nc" id="L58">		ingAtmManagerService.storeUploadedFile(file);</span>
-<span class="nc" id="L59">        return &quot;You successfully uploaded &quot; + file.getOriginalFilename() + &quot;!&quot;;</span>
+<span class="nc" id="L56">		ingAtmManagerService.storeUploadedFile(file);</span>
+<span class="nc" id="L57">        return &quot;You successfully uploaded &quot; + file.getOriginalFilename() + &quot;!&quot;;</span>
 
     }
 

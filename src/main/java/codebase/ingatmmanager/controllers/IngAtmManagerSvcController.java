@@ -1,7 +1,5 @@
 package codebase.ingatmmanager.controllers;
 
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
