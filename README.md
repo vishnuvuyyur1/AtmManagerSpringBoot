@@ -1,7 +1,7 @@
-# INGAtmManagerSpringBoot
+# AtmManagerSpringBoot
 A SpringBoot based MVC application
 
-INGAtmManager:
+AtmManager:
 Project Type:  Java Web Application
 
 Objective:
@@ -49,9 +49,9 @@ The web application will invoke an external service to gather a super set of the
 data: https://www.ing.nl/api/locator/atms/
  
 •	User uses the Nav Tabs to go back to home Screen
-•	Create ING ATM Tab in Nav 
+•	Create ATM Tab in Nav 
 
-On click of this tab the user will be routed to a page that allows creating of ING ATMs in a given Dutch city 
+On click of this tab the user will be routed to a page that allows creating of  ATMs in a given Dutch city 
 
  
 
@@ -63,14 +63,14 @@ The user enters the details of ATM and saves them, On save the user can be able 
 
  
 
-The user can Add more ATMs if he wishes or can go to homepage or create ATMs in another city by clicking create ING Atm tab.
+The user can Add more ATMs if he wishes or can go to homepage or create ATMs in another city by clicking create  Atm tab.
 
  
 
 On click save the user will be able to see the ATMs he created for a given Dutch city.
  
 
-The user can keep adding or go to home page or click on Create ING Atm tab to create ATM for another Dutch city.
+The user can keep adding or go to home page or click on Create Atm tab to create ATM for another Dutch city.
 
 
 
@@ -79,7 +79,7 @@ REST API :
 GET    :  api/getAllAtmDetails
 URL   :  http://localhost:8080/ingatmmanager/api/getAllAtmDetails
 
-Output: List of All ING Atms 
+Output: List of All Atms 
 
 [
       {
@@ -114,7 +114,7 @@ Output: List of All ING Atms
 ]
 
 
-The web application will provide a REST API to create a list of ING ATMs in a given Dutch city and return a well formed JSON response
+The web application will provide a REST API to create a list of  ATMs in a given Dutch city and return a well formed JSON response
 
 POST     :  api/createAtmDetailForCity
 URL       : http://localhost:8080/ingatmmanager/api/createAtmDetailForCity
